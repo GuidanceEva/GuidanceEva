@@ -1,112 +1,154 @@
-```html
 <!doctype html>
 <html lang="fr">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-
+  <meta charset="utf-8">
   <title>GuidanceEva – Tarologie & Guidance intuitive</title>
-  <meta name="description" content="GuidanceEva : tarologie et pendule en ligne. Un espace doux et sincère pour éclairer vos émotions, vos choix et vos énergies. Premier tirage offert." />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta name="description" content="GuidanceEva : tarologie et pendule en ligne. Guidance intuitive, énergies, chakras, amour, travail. Premier tirage gratuit.">
 
   <style>
-    :root { --max: 920px; }
-    body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; margin: 0; line-height: 1.6; }
-    header, main, footer { padding: 28px 18px; }
-    .wrap { max-width: var(--max); margin: 0 auto; }
-    .card { border: 1px solid #e6e6e6; border-radius: 18px; padding: 18px; margin: 16px 0; }
-    h1 { font-size: 2rem; margin: 0 0 8px; }
-    h2 { font-size: 1.25rem; margin: 0 0 8px; }
-    p { margin: 10px 0; }
-    .muted { opacity: 0.75; }
-    .cta-row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 14px; }
-    a.btn { display: inline-block; text-decoration: none; border: 1px solid #111; padding: 10px 14px; border-radius: 999px; color: #111; }
-    a.btn.primary { background: #111; color: #fff; }
-    ul { margin: 10px 0 0 18px; }
-    footer { border-top: 1px solid #eee; }
-    small { display: block; }
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #fafafa;
+      color: #222;
+      line-height: 1.6;
+    }
+
+    header {
+      background: #111;
+      padding: 20px;
+      text-align: center;
+    }
+
+    header a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 28px;
+      font-weight: bold;
+    }
+
+    main {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    section {
+      margin-bottom: 40px;
+      background: #fff;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    }
+
+    h1, h2 {
+      margin-top: 0;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 12px 20px;
+      background: #111;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 30px;
+      font-size: 14px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 13px;
+      color: #666;
+      border-top: 1px solid #ddd;
+    }
   </style>
 </head>
 
 <body>
-  <header>
-    <div class="wrap">
-      <h1>Bienvenue chez GuidanceEva, faites comme chez vous.</h1>
-      <p class="muted">Tarologie & guidance intuitive • Pendule • Énergies</p>
 
-      <div class="cta-row">
-        <a class="btn primary" href="contact.html">Demander mon tirage gratuit</a>
-        <a class="btn" href="tirages.html">Découvrir mes tirages</a>
-      </div>
-    </div>
+  <!-- HEADER -->
+  <header>
+    <!-- IMPORTANT : lien vers index.html -->
+    <a href="index.html">GuidanceEva</a>
   </header>
 
+  <!-- CONTENU -->
   <main>
-    <div class="wrap">
-      <section class="card">
-        <h2>Un espace spécial, pour échanger ensemble</h2>
-        <p>
-          Ce site est un lieu à part : un espace d’échange, d’écoute et de guidance.
-          Grâce à celui-ci, nous pouvons prendre le temps de parler ensemble, dans le respect et la bienveillance.
-        </p>
-        <p>
-          Je propose un <strong>premier tirage gratuit</strong> afin de faire plus ample connaissance et de ressentir
-          si mon énergie vous correspond.
-        </p>
-      </section>
 
-      <section class="card">
-        <h2>Sur quoi pouvons-nous travailler ?</h2>
-        <p>
-          Ensemble, nous pouvons travailler sur vos <strong>énergies</strong>, une <strong>guidance personnalisée</strong>,
-          vos <strong>chakras</strong>, et des thématiques comme <strong>l’amour</strong>, <strong>l’amitié</strong>,
-          <strong>le travail</strong>, ou toute situation qui vous questionne.
-        </p>
-        <ul>
-          <li>Comprendre une situation et vos ressentis</li>
-          <li>Mettre de la clarté sur un choix</li>
-          <li>Identifier un blocage énergétique ou émotionnel</li>
-          <li>Recevoir une guidance douce et honnête</li>
-        </ul>
-        <p class="muted">
-          La tarologie est un outil de guidance : elle éclaire, elle n’impose pas. Vous restez toujours libre de vos choix.
-        </p>
-      </section>
+    <section>
+      <h1>Bienvenue chez GuidanceEva, faites comme chez vous.</h1>
+      <p>
+        Ce site est un espace à part, un lieu d’échange, d’écoute et de guidance.
+        Grâce à celui-ci, nous pouvons échanger ensemble dans le respect et la bienveillance.
+      </p>
+      <p>
+        Je propose un <strong>premier tirage gratuit</strong> afin de faire plus ample connaissance
+        et de ressentir si mon énergie vous correspond.
+      </p>
+    </section>
 
-      <section class="card">
-        <h2>Qui suis-je ?</h2>
-        <p>
-          Je suis spécialisée dans la <strong>tarologie depuis ma tendre enfance</strong>.
-          J’exerce aussi avec le <strong>pendule</strong>, en m’appuyant sur mon ressenti et mon intuition.
-        </p>
-        <p>
-          Mon approche est <strong>sincère</strong>, <strong>humaine</strong> et <strong>respectueuse</strong> :
-          je ne suis pas là pour faire rêver à tout prix, mais pour vous accompagner avec justesse et bienveillance.
-        </p>
-      </section>
+    <section>
+      <h2>Sur quoi pouvons-nous travailler ?</h2>
+      <p>
+        Ensemble, nous pouvons travailler sur vos <strong>énergies</strong>,
+        une <strong>guidance personnalisée</strong>, les <strong>chakras</strong>,
+        mais aussi sur des thèmes comme :
+      </p>
+      <ul>
+        <li>L’amour</li>
+        <li>L’amitié</li>
+        <li>Le travail</li>
+        <li>Les choix de vie</li>
+        <li>Les blocages émotionnels</li>
+      </ul>
+      <p>
+        La tarologie permet d’éclairer une situation et de mieux comprendre ce que vous traversez,
+        sans jamais imposer une vérité.
+      </p>
+    </section>
 
-      <section class="card">
-        <h2>Premier tirage gratuit</h2>
-        <p>
-          Pour votre premier échange, je vous offre un tirage simple (guidance courte) afin de faire connaissance.
-          Ensuite, si vous le souhaitez, nous pourrons aller plus loin avec une guidance personnalisée.
-        </p>
-        <div class="cta-row">
-          <a class="btn primary" href="contact.html">Je demande mon tirage gratuit</a>
-          <a class="btn" href="mentions-legales.html">Mentions légales</a>
-        </div>
-      </section>
-    </div>
+    <section>
+      <h2>Qui suis-je ?</h2>
+      <p>
+        Je suis spécialisée dans la <strong>tarologie depuis ma tendre enfance</strong>.
+        J’exerce également avec le <strong>pendule</strong>, en m’appuyant sur mon intuition
+        et mon ressenti.
+      </p>
+      <p>
+        Mon approche est humaine, sincère et respectueuse.
+        Je ne suis pas là pour faire rêver à tout prix,
+        mais pour vous accompagner avec justesse et bienveillance.
+      </p>
+    </section>
+
+    <section>
+      <h2>Premier tirage gratuit</h2>
+      <p>
+        Le premier tirage est offert afin de créer un premier échange.
+        Par la suite, si vous le souhaitez, une guidance plus approfondie pourra être proposée.
+      </p>
+      <a class="btn" href="contact.html">Demander mon tirage gratuit</a>
+    </section>
+
   </main>
 
+  <!-- FOOTER -->
   <footer>
-    <div class="wrap">
-      <small class="muted">
-        Disclaimer : la tarologie est une guidance spirituelle et un outil de développement personnel.
-        Elle ne remplace pas un avis médical, juridique ou financier.
-      </small>
-      <small class="muted">© GuidanceEva</small>
-    </div>
+    <p>
+      La tarologie est un outil de guidance et de développement personnel.
+      Elle ne remplace pas un avis médical, juridique ou financier.
+    </p>
+    <p>© GuidanceEva</p>
   </footer>
+
 </body>
 </html>
-```
+
