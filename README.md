@@ -1,4 +1,11 @@
-## Hi there 👋
+# GuidanceEva
+
+GuidanceEva est un site de tarologie et de guidance intuitive.
+
+Ce projet a pour objectif de proposer un espace d’échange, de clarté et de bienveillance
+à travers des tirages de tarot et l’utilisation du pendule.
+
+Site vitrine hébergé gratuitement via GitHub Pages.
 
 <!--
 **GuidanceEva/GuidanceEva** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
