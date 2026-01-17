@@ -1,0 +1,477 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>Mes tirages – GuidanceEva</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta name="description" content="Mes tirages chez GuidanceEva : oracles, tarots, pendule, amour, compatibilité, mission de vie, libération énergétique. Visio ou questionnaire. Délai 48h.">
+
+  <!-- Aesthetic fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      /* Bordeaux x Lilas aesthetic */
+      --bordeaux:#5a1026;
+      --bordeaux2:#7a1632;
+      --lilac:#c9a7ff;
+      --lilac2:#b38cff;
+      --cream:#fff7fb;
+
+      --text:#1a0b13;
+      --muted: rgba(26, 11, 19, .72);
+
+      --glass: rgba(255,255,255,.72);
+      --stroke: rgba(90,16,38,.14);
+
+      --shadow: 0 20px 55px rgba(26,11,19,.18);
+      --shadow2: 0 18px 45px rgba(201,167,255,.18);
+
+      --radius: 22px;
+      --max: 1020px;
+    }
+
+    *{ box-sizing: border-box; }
+
+    body{
+      margin:0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color:var(--text);
+      line-height:1.65;
+      min-height:100vh;
+
+      background:
+        radial-gradient(900px 460px at 12% 12%, rgba(90,16,38,.36), transparent 62%),
+        radial-gradient(900px 460px at 90% 18%, rgba(201,167,255,.35), transparent 62%),
+        radial-gradient(700px 420px at 45% 92%, rgba(179,140,255,.28), transparent 62%),
+        linear-gradient(135deg, #fff3f8 0%, #f7ecff 45%, #fff8fb 100%);
+    }
+
+    /* subtle sparkles */
+    .sparkles{
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: .65;
+      background-image:
+        radial-gradient(2px 2px at 12% 26%, rgba(255,255,255,.92), transparent 60%),
+        radial-gradient(2px 2px at 22% 72%, rgba(255,255,255,.72), transparent 60%),
+        radial-gradient(2px 2px at 78% 24%, rgba(255,255,255,.86), transparent 60%),
+        radial-gradient(2px 2px at 88% 68%, rgba(255,255,255,.70), transparent 60%),
+        radial-gradient(1.6px 1.6px at 52% 12%, rgba(255,255,255,.70), transparent 60%),
+        radial-gradient(1.6px 1.6px at 55% 88%, rgba(255,255,255,.62), transparent 60%);
+      filter: blur(.2px);
+    }
+
+    header{
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(255,255,255,.55);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(90,16,38,.10);
+    }
+
+    .wrap{
+      max-width: var(--max);
+      margin:0 auto;
+      padding: 14px 18px;
+    }
+
+    .topbar{
+      display:flex;
+      align-items:center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap: 10px;
+      text-decoration:none;
+      color: var(--text);
+      font-family: "Playfair Display", serif;
+      font-weight: 700;
+      letter-spacing: .2px;
+      font-size: 22px;
+    }
+
+    .logo{
+      width: 40px;
+      height: 40px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, var(--bordeaux2), var(--lilac2));
+      box-shadow: 0 16px 40px rgba(90,16,38,.20);
+      display:grid;
+      place-items:center;
+      color:#fff;
+      font-size: 18px;
+      line-height: 1;
+      border: 1px solid rgba(255,255,255,.35);
+    }
+
+    nav{
+      display:flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content:flex-end;
+    }
+
+    .pill{
+      text-decoration:none;
+      color: var(--text);
+      font-weight: 800;
+      font-size: 13px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(26,11,19,.10);
+      background: rgba(255,255,255,.70);
+      transition: transform .12s ease, box-shadow .12s ease, border-color .12s ease;
+    }
+    .pill:hover{
+      transform: translateY(-1px);
+      border-color: rgba(90,16,38,.22);
+      box-shadow: 0 12px 26px rgba(26,11,19,.10);
+    }
+
+    .pill.primary{
+      border: none;
+      color: #fff;
+      background: linear-gradient(135deg, var(--bordeaux2), var(--lilac2));
+      box-shadow: 0 16px 34px rgba(90,16,38,.18);
+    }
+
+    main{
+      max-width: var(--max);
+      margin:0 auto;
+      padding: 28px 18px 54px;
+    }
+
+    h1,h2,h3{
+      font-family: "Playfair Display", serif;
+      margin-top:0;
+    }
+
+    h1{
+      font-size: clamp(30px, 4vw, 44px);
+      margin: 0 0 10px;
+      letter-spacing: .2px;
+    }
+
+    .subtitle{
+      margin: 0;
+      color: var(--muted);
+      font-size: 15px;
+      max-width: 76ch;
+    }
+
+    .badgeRow{
+      display:flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      gap: 10px;
+      padding: 9px 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.74);
+      border: 1px solid rgba(90,16,38,.14);
+      box-shadow: 0 12px 26px rgba(26,11,19,.08);
+      font-size: 13px;
+      font-weight: 700;
+      color: rgba(26,11,19,.84);
+      width: fit-content;
+    }
+
+    .dot{
+      width: 8px; height: 8px; border-radius: 999px;
+      background: linear-gradient(135deg, var(--bordeaux2), var(--lilac2));
+      box-shadow: 0 0 0 4px rgba(201,167,255,.18);
+    }
+
+    .card{
+      margin-top: 16px;
+      border-radius: var(--radius);
+      background: var(--glass);
+      border: 1px solid var(--stroke);
+      box-shadow: var(--shadow);
+      padding: 18px;
+      backdrop-filter: blur(10px);
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+      margin-top: 14px;
+    }
+
+    .mini{
+      border-radius: var(--radius);
+      background: rgba(255,255,255,.78);
+      border: 1px solid rgba(26,11,19,.08);
+      box-shadow: 0 12px 30px rgba(26,11,19,.10);
+      padding: 16px;
+    }
+
+    .mini h3{
+      margin: 0 0 6px;
+      font-size: 18px;
+    }
+    .mini p{
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .sectionTitle{
+      margin: 26px 0 10px;
+      font-family: "Playfair Display", serif;
+      font-size: 22px;
+    }
+
+    ul{
+      margin: 10px 0 0 18px;
+      color: rgba(26,11,19,.84);
+    }
+
+    .listClean{
+      list-style:none;
+      padding-left:0;
+      margin: 10px 0 0;
+    }
+    .listClean li{
+      padding: 10px 12px;
+      border: 1px solid rgba(26,11,19,.08);
+      border-radius: 14px;
+      background: rgba(255,255,255,.80);
+      margin-bottom: 10px;
+    }
+
+    .oracle{
+      margin-top: 12px;
+      padding: 14px;
+      border-radius: 16px;
+      background: rgba(255,255,255,.82);
+      border: 1px solid rgba(201,167,255,.22);
+      box-shadow: var(--shadow2);
+    }
+    .oracle h3{
+      margin: 0 0 6px;
+      font-size: 18px;
+    }
+    .oracle p{
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .callout{
+      border-radius: var(--radius);
+      padding: 14px 16px;
+      border: 1px solid rgba(201,167,255,.30);
+      background: linear-gradient(135deg, rgba(255,255,255,.78), rgba(247,236,255,.86));
+      box-shadow: 0 16px 34px rgba(201,167,255,.14);
+      margin-top: 14px;
+    }
+
+    .btnRow{ display:flex; gap: 10px; flex-wrap: wrap; margin-top: 14px; }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap: 8px;
+      text-decoration:none;
+      font-weight: 900;
+      font-size: 14px;
+      padding: 12px 16px;
+      border-radius: 999px;
+      transition: transform .12s ease, box-shadow .12s ease;
+      border: 1px solid rgba(26,11,19,.12);
+      background: rgba(255,255,255,.82);
+      color: var(--text);
+    }
+    .btn:hover{ transform: translateY(-1px); box-shadow: 0 14px 30px rgba(26,11,19,.10); }
+
+    .btn.primary{
+      border: none;
+      color:#fff;
+      background: linear-gradient(135deg, var(--bordeaux2), var(--lilac2));
+      box-shadow: 0 18px 40px rgba(90,16,38,.18);
+    }
+
+    footer{
+      text-align:center;
+      padding: 22px 18px;
+      color: rgba(26,11,19,.62);
+      border-top: 1px solid rgba(90,16,38,.10);
+      background: rgba(255,255,255,.48);
+      backdrop-filter: blur(12px);
+      margin-top: 40px;
+    }
+    .small{ font-size: 12px; }
+
+    @media (max-width: 900px){
+      .topbar{ flex-direction: column; align-items: flex-start; }
+      nav{ justify-content: flex-start; }
+      .grid{ grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="sparkles"></div>
+
+  <header>
+    <div class="wrap">
+      <div class="topbar">
+        <a class="brand" href="index.html" aria-label="Retour à l'accueil">
+          <span class="logo">✦</span>
+          <span>GuidanceEva</span>
+        </a>
+
+        <nav>
+          <a class="pill primary" href="tirages.html">Mes tirages</a>
+          <a class="pill" href="tirage-gratuit.html">Tirage gratuit</a>
+          <a class="pill" href="contact.html">Contact</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <h1>Mes tirages & guidances</h1>
+    <p class="subtitle">
+      Je propose des guidances pour <strong>tout type de questions</strong> : amour, amitié, travail, énergie, mission de vie,
+      blocages, décisions, liens karmiques… Il y en a pour tout le monde.
+    </p>
+
+    <div class="badgeRow">
+      <div class="badge"><span class="dot"></span><span>Visio ou questionnaire</span></div>
+      <div class="badge"><span class="dot"></span><span>Séance 45 minutes</span></div>
+      <div class="badge"><span class="dot"></span><span>Plusieurs questions possibles</span></div>
+      <div class="badge"><span class="dot"></span><span>Délai : 48h</span></div>
+    </div>
+
+    <div class="card">
+      <h2>✨ Comment je procède</h2>
+      <p>
+        Si vous êtes plus connaisseurs, vous pouvez <strong>choisir l’oracle / tarot</strong> que vous souhaitez.
+        Ne vous inquiétez pas : il est possible de <strong>combiner plusieurs oracles et tarots</strong> au cours d’une même séance
+        de <strong>45 minutes</strong> pour affiner les réponses.
+      </p>
+      <p>
+        Vous pouvez aussi choisir une guidance <strong>sans rendez-vous visio</strong> :
+        il suffit de <strong>répondre à un questionnaire</strong> (lien communiqué après réservation).
+      </p>
+
+      <div class="callout">
+        <strong>⏳ Délai :</strong> au vu des demandes, un délai de <strong>48 heures</strong> est demandé pour la réalisation de votre guidance.
+      </div>
+
+      <div class="btnRow">
+        <a class="btn primary" href="contact.html">Prendre rendez-vous / Réserver</a>
+        <a class="btn" href="tirage-gratuit.html">Voir le tirage gratuit</a>
+      </div>
+    </div>
+
+    <div class="grid">
+      <div class="mini">
+        <h3>🔮 Pendule (en complément)</h3>
+        <p>On peut compléter la guidance par des questions au pendule pour préciser, trancher ou confirmer une réponse.</p>
+      </div>
+      <div class="mini">
+        <h3>💗 Amour & compatibilité</h3>
+        <p>Analyse du lien (amour / amitié), intentions, dynamique, et <strong>% de compatibilité</strong> + questions ciblées.</p>
+      </div>
+    </div>
+
+    <h2 class="sectionTitle">Oracles & tarots les plus demandés</h2>
+
+    <div class="oracle">
+      <h3>Oracle Gé – Gérard Barbier</h3>
+      <p>Très concret et direct. Parfait pour le quotidien : amour, travail, décisions, évolution d’une situation.</p>
+    </div>
+
+    <div class="oracle">
+      <h3>Tarot de Marseille</h3>
+      <p>Lecture profonde et symbolique : cycles, blocages, prises de conscience, direction à prendre.</p>
+    </div>
+
+    <div class="oracle">
+      <h3>Tarot de l’Illumination</h3>
+      <p>Axé sur l’évolution intérieure : révélations, alignement, messages spirituels et étapes de transformation.</p>
+    </div>
+
+    <div class="oracle">
+      <h3>Oracle Chakra du Cœur – Isabelle Cerf</h3>
+      <p>Idéal pour les blessures émotionnelles, l’estime de soi, les relations et la guérison du cœur.</p>
+    </div>
+
+    <div class="oracle">
+      <h3>Libération énergétique – Isabelle Cerf</h3>
+      <p>Pour mettre en lumière et libérer des blocages énergétiques, karmiques ou émotionnels.</p>
+    </div>
+
+    <div class="oracle">
+      <h3>Mission de vie – Isabelle Cerf</h3>
+      <p>Pour comprendre ses talents, son chemin, son sens de vie et les étapes d’évolution.</p>
+    </div>
+
+    <div class="oracle">
+      <h3>Oracle des Miroirs</h3>
+      <p>Met en lumière ce que les situations et les personnes reflètent en vous. Parfait pour le travail sur soi.</p>
+    </div>
+
+    <div class="oracle">
+      <h3>Oracle des Affirmations positives</h3>
+      <p>Doux et soutenant : confiance, motivation, estime, reprogrammation positive et ancrage.</p>
+    </div>
+
+    <div class="oracle">
+      <h3>Oracle La Voix des Âmes – Isabelle Cerf</h3>
+      <p>Messages intuitifs de l’âme : guidance subtile, appels intérieurs, ressenti profond.</p>
+    </div>
+
+    <div class="oracle">
+      <h3>Oracle Le Cri des Âmes – Isabelle Cerf</h3>
+      <p>Met en lumière ce qui veut être entendu / libéré. Très utile en période de crise ou de changement.</p>
+    </div>
+
+    <div class="oracle">
+      <h3>Oracle Guérison du Cœur</h3>
+      <p>Pour accompagner une guérison : séparation, deuil, reconstruction, réparation émotionnelle.</p>
+    </div>
+
+    <div class="oracle">
+      <h3>Tarot de l’Impudeur</h3>
+      <p>Sans filtre : vérités cachées, dynamiques relationnelles, zones d’ombre, prises de conscience rapides.</p>
+    </div>
+
+    <div class="card">
+      <h2>🌙 Mon approche</h2>
+      <p>
+        Je travaille avec bienveillance, intuition et respect du libre arbitre.
+        L’objectif est d’apporter de la clarté, de comprendre votre situation et de vous aider à avancer — sans dépendance.
+      </p>
+      <div class="btnRow">
+        <a class="btn primary" href="contact.html">Me contacter / Réserver</a>
+        <a class="btn" href="index.html">Retour accueil</a>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="small">© GuidanceEva • Guidances réalisées avec respect • Délai 48h</div>
+  </footer>
+</body>
+</html>
