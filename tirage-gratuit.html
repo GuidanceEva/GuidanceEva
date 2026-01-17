@@ -1,0 +1,432 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>Tirage gratuit – GuidanceEva</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta name="description" content="Tirage gratuit sur rendez-vous (3 cartes) chez GuidanceEva. 1 seul tirage gratuit par personne. Délai 48h. Nom, prénom, photo et question requis.">
+
+  <!-- Girly fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --pink:#ff2fb3;
+      --hot:#ff4fd1;
+      --lilac:#a855f7;
+      --violet:#7c3aed;
+      --soft:#ffd3ef;
+
+      --text:#160914;
+      --muted: rgba(22, 9, 20, .72);
+
+      --glass: rgba(255,255,255,.72);
+      --stroke: rgba(255, 47, 179, .22);
+
+      --shadow: 0 18px 45px rgba(22, 9, 20, .18);
+      --shadowHot: 0 18px 45px rgba(255, 47, 179, .25);
+
+      --radius: 20px;
+      --max: 980px;
+    }
+
+    *{ box-sizing: border-box; }
+
+    body{
+      margin:0;
+      color:var(--text);
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      line-height: 1.65;
+      min-height:100vh;
+
+      background:
+        radial-gradient(900px 450px at 10% 10%, rgba(255,47,179,.55), transparent 60%),
+        radial-gradient(850px 420px at 92% 18%, rgba(124,58,237,.45), transparent 60%),
+        radial-gradient(700px 380px at 40% 92%, rgba(255,121,198,.40), transparent 60%),
+        linear-gradient(135deg, #fff0fb 0%, #ffe0f7 35%, #f5e8ff 100%);
+    }
+
+    .sparkles{
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: .75;
+      background-image:
+        radial-gradient(2px 2px at 12% 26%, rgba(255,255,255,.9), transparent 60%),
+        radial-gradient(2px 2px at 22% 72%, rgba(255,255,255,.75), transparent 60%),
+        radial-gradient(2px 2px at 78% 24%, rgba(255,255,255,.85), transparent 60%),
+        radial-gradient(2px 2px at 88% 68%, rgba(255,255,255,.7), transparent 60%),
+        radial-gradient(1.5px 1.5px at 52% 12%, rgba(255,255,255,.7), transparent 60%),
+        radial-gradient(1.5px 1.5px at 55% 88%, rgba(255,255,255,.65), transparent 60%);
+      filter: blur(.2px);
+    }
+
+    header{
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(255,255,255,.50);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255, 47, 179, .18);
+    }
+
+    .wrap{
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 14px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap: 10px;
+      text-decoration:none;
+      color: var(--text);
+      font-family: "Playfair Display", serif;
+      font-weight: 700;
+      letter-spacing: .2px;
+      font-size: 22px;
+    }
+
+    .logo{
+      width: 40px;
+      height: 40px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, var(--pink), var(--lilac));
+      box-shadow: var(--shadowHot);
+      display:grid;
+      place-items:center;
+      color:#fff;
+      font-size: 18px;
+      line-height: 1;
+      border: 1px solid rgba(255,255,255,.35);
+    }
+
+    nav{
+      display:flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content:flex-end;
+    }
+
+    .pill{
+      text-decoration:none;
+      color: var(--text);
+      font-weight: 800;
+      font-size: 13px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(22, 9, 20, .10);
+      background: rgba(255,255,255,.65);
+      transition: transform .12s ease, box-shadow .12s ease, border-color .12s ease;
+    }
+    .pill:hover{
+      transform: translateY(-1px);
+      border-color: rgba(255,47,179,.30);
+      box-shadow: 0 12px 25px rgba(22, 9, 20, .12);
+    }
+
+    .pill.primary{
+      border: none;
+      color: #fff;
+      background: linear-gradient(135deg, var(--pink), var(--lilac));
+      box-shadow: 0 14px 28px rgba(255,47,179,.22);
+    }
+
+    main{
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 28px 18px 54px;
+    }
+
+    h1{
+      font-family: "Playfair Display", serif;
+      font-weight: 700;
+      font-size: clamp(30px, 4vw, 44px);
+      margin: 0 0 10px;
+      letter-spacing: .2px;
+    }
+
+    .subtitle{
+      margin: 0;
+      color: var(--muted);
+      font-size: 15px;
+      max-width: 70ch;
+    }
+
+    .badgeRow{
+      display:flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      gap: 10px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.70);
+      border: 1px solid rgba(255,47,179,.20);
+      font-size: 13px;
+      color: rgba(22,9,20,.82);
+      box-shadow: 0 12px 26px rgba(22, 9, 20, .10);
+      width: fit-content;
+    }
+
+    .dot{
+      width: 8px; height: 8px; border-radius: 999px;
+      background: var(--pink);
+      box-shadow: 0 0 0 4px rgba(255,47,179,.20);
+    }
+
+    .card{
+      border-radius: var(--radius);
+      background: var(--glass);
+      border: 1px solid var(--stroke);
+      box-shadow: var(--shadow);
+      padding: 18px;
+      backdrop-filter: blur(10px);
+      margin-top: 16px;
+    }
+
+    h2{
+      font-family: "Playfair Display", serif;
+      margin: 0 0 10px;
+      font-size: 22px;
+    }
+
+    h3{
+      font-family: "Playfair Display", serif;
+      margin: 0 0 8px;
+      font-size: 18px;
+    }
+
+    p{ margin: 10px 0; }
+
+    ul{
+      margin: 10px 0 0 18px;
+      color: rgba(22,9,20,.82);
+    }
+
+    .listClean{
+      list-style: none;
+      padding-left: 0;
+      margin: 10px 0 0;
+    }
+    .listClean li{
+      padding: 10px 12px;
+      border: 1px solid rgba(22,9,20,.08);
+      border-radius: 14px;
+      background: rgba(255,255,255,.62);
+      margin-bottom: 10px;
+    }
+
+    .callout{
+      border-radius: var(--radius);
+      padding: 14px 16px;
+      border: 1px solid rgba(124,58,237,.22);
+      background: linear-gradient(135deg, rgba(255,255,255,.72), rgba(245,232,255,.80));
+      box-shadow: 0 14px 30px rgba(124,58,237,.12);
+      margin-top: 14px;
+    }
+
+    .btnRow{ display:flex; gap: 10px; flex-wrap: wrap; margin-top: 14px; }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap: 8px;
+      text-decoration:none;
+      font-weight: 900;
+      font-size: 14px;
+      padding: 12px 16px;
+      border-radius: 999px;
+      transition: transform .12s ease, box-shadow .12s ease;
+      border: 1px solid rgba(22,9,20,.12);
+      background: rgba(255,255,255,.78);
+      color: var(--text);
+    }
+    .btn:hover{ transform: translateY(-1px); box-shadow: 0 14px 30px rgba(22, 9, 20, .12); }
+
+    .btn.primary{
+      border: none;
+      background: linear-gradient(135deg, var(--pink), var(--lilac));
+      color: #fff;
+      box-shadow: 0 16px 34px rgba(255,47,179,.24);
+    }
+
+    .email{
+      display:inline-flex;
+      align-items:center;
+      gap: 10px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.72);
+      border: 1px solid rgba(255,47,179,.22);
+      box-shadow: 0 12px 26px rgba(22, 9, 20, .10);
+      font-weight: 800;
+      font-size: 13px;
+      color: rgba(22,9,20,.90);
+      width: fit-content;
+    }
+    .email a{ color: rgba(22,9,20,.90); text-decoration: none; }
+    .email a:hover{ text-decoration: underline; }
+
+    footer{
+      text-align:center;
+      padding: 22px 18px;
+      color: rgba(22,9,20,.62);
+      border-top: 1px solid rgba(255,47,179,.18);
+      background: rgba(255,255,255,.48);
+      backdrop-filter: blur(12px);
+    }
+    .small{ font-size: 12px; }
+
+    @media (max-width: 880px){
+      .wrap{ flex-direction: column; align-items: flex-start; }
+      nav{ justify-content: flex-start; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="sparkles"></div>
+
+  <header>
+    <div class="wrap">
+      <a class="brand" href="index.html" aria-label="Retour à l'accueil">
+        <span class="logo">★</span>
+        <span>GuidanceEva</span>
+      </a>
+
+      <nav>
+        <a class="pill" href="tirages.html">Mes tirages</a>
+        <a class="pill" href="contact.html">Contact</a>
+        <a class="pill primary" href="tirage-gratuit.html">Tirage gratuit</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section>
+      <h1>Tirage gratuit – sur rendez-vous</h1>
+      <p class="subtitle">
+        Le tirage gratuit est proposé afin de faire connaissance et de vous permettre de ressentir
+        si mon énergie et ma manière de travailler vous correspondent. Merci de respecter le cadre ci-dessous.
+      </p>
+
+      <div class="badgeRow">
+        <div class="badge"><span class="dot"></span><span>1 seul tirage gratuit par personne</span></div>
+        <div class="badge"><span class="dot"></span><span>3 cartes • tirage général • bref & clair</span></div>
+        <div class="badge"><span class="dot"></span><span>Sur rendez-vous uniquement</span></div>
+        <div class="badge"><span class="dot"></span><span>Délai : 48h maximum</span></div>
+      </div>
+
+      <div class="card">
+        <h2>🔮 Ce que comprend le tirage gratuit</h2>
+        <ul class="listClean">
+          <li><strong>1 tirage général</strong> (énergie du moment, tendance, message principal)</li>
+          <li><strong>3 cartes maximum</strong></li>
+          <li>Une lecture <strong>courte, claire et synthétique</strong></li>
+          <li>Réalisée <strong>uniquement sur rendez-vous</strong></li>
+        </ul>
+
+        <div class="callout">
+          <strong>⏳ Délai de réponse :</strong><br>
+          Les tirages gratuits sont réalisés dans un délai de <strong>48 heures maximum</strong>,
+          à compter de la réception de <strong>toutes</strong> les informations demandées et du rendez-vous validé.
+        </div>
+
+        <div class="btnRow">
+          <a class="btn primary" href="contact.html">Prendre rendez-vous / Demander le tirage</a>
+          <a class="btn" href="index.html">Retour à l’accueil</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>📝 Informations obligatoires à fournir</h2>
+        <p>
+          Pour réaliser votre tirage, merci de me transmettre <strong>obligatoirement</strong> :
+        </p>
+        <ul class="listClean">
+          <li>✔️ <strong>Prénom</strong></li>
+          <li>✔️ <strong>Nom</strong></li>
+          <li>✔️ <strong>Une photo récente</strong> (visage uniquement, naturelle)</li>
+          <li>✔️ <strong>Votre question</strong> OU une intention générale (claire et concise)</li>
+        </ul>
+        <p class="small" style="color: rgba(22,9,20,.68); margin-top: 10px;">
+          Sans ces éléments, le tirage ne pourra pas être effectué.
+        </p>
+      </div>
+
+      <div class="card">
+        <h2>⛔ Règles importantes (anti-abus)</h2>
+        <p>
+          Pour préserver un cadre sain et juste pour tous :
+        </p>
+        <ul class="listClean">
+          <li>🔒 <strong>1 seul tirage gratuit par personne</strong> (une seule fois)</li>
+          <li>🔒 <strong>Un seul tirage gratuit = 3 cartes</strong> (pas de tirage approfondi en gratuit)</li>
+          <li>🔒 Les demandes multiples, répétées ou insistantes <strong>ne seront pas traitées</strong></li>
+          <li>🔒 Toute tentative de contournement (changement de nom, email, etc.) entraîne un <strong>refus définitif</strong></li>
+        </ul>
+
+        <div class="callout" style="border-color: rgba(255,47,179,.22); box-shadow: 0 14px 30px rgba(255,47,179,.14);">
+          <strong>💗 Merci :</strong> toute demande ne respectant pas ce cadre ne recevra pas de réponse.
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>🌙 Pourquoi sur rendez-vous ?</h2>
+        <p>
+          Le tirage gratuit est réalisé <strong>uniquement sur rendez-vous</strong> afin de respecter mon énergie de travail,
+          d’être pleinement disponible, et de vous offrir une guidance posée et sincère.
+        </p>
+      </div>
+
+      <div class="card">
+        <h2>✨ Et après le tirage gratuit ?</h2>
+        <p>
+          Si vous souhaitez aller plus loin après le tirage gratuit, une <strong>guidance personnalisée</strong>
+          pourra être proposée avec un tirage plus approfondi et un échange plus complet.
+        </p>
+        <p class="small" style="color: rgba(22,9,20,.68);">
+          Le tirage gratuit n’ouvre pas automatiquement droit à un suivi.
+        </p>
+      </div>
+
+      <div class="card">
+        <h2>🕊️ Cadre & éthique</h2>
+        <p>
+          La tarologie est un outil de guidance et de développement personnel.
+          Elle ne remplace pas un avis médical, juridique ou financier.
+          Vous restez toujours libre de vos choix.
+        </p>
+
+        <div class="email">
+          📩 <a href="mailto:guidanceevatarologie@gmail.com">guidanceevatarologie@gmail.com</a>
+        </div>
+      </div>
+
+      <div class="btnRow" style="margin-top: 18px;">
+        <a class="btn primary" href="contact.html">Je prends rendez-vous</a>
+        <a class="btn" href="tirages.html">Voir mes tirages</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="small">© GuidanceEva • Tirage gratuit sur rendez-vous • Délai 48h</div>
+  </footer>
+</body>
+</html>
