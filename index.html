@@ -5,150 +5,435 @@
   <title>GuidanceEva – Tarologie & Guidance intuitive</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <meta name="description" content="GuidanceEva : tarologie et pendule en ligne. Guidance intuitive, énergies, chakras, amour, travail. Premier tirage gratuit.">
+  <meta name="description" content="GuidanceEva : voyance & tarologie en ligne. Guidance intuitive, énergies, chakras, amour, travail. Premier tirage gratuit.">
+
+  <!-- Girly fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
   <style>
-    body {
+    :root{
+      --bgA:#ff2fb3;
+      --bgB:#7c3aed;
+      --bgC:#ff79c6;
+
+      --pink:#ff2fb3;
+      --hot:#ff4fd1;
+      --lilac:#a855f7;
+      --soft:#ffd3ef;
+
+      --text:#160914;
+      --muted: rgba(22, 9, 20, .70);
+
+      --glass: rgba(255,255,255,.70);
+      --stroke: rgba(255, 47, 179, .22);
+
+      --shadow: 0 18px 45px rgba(22, 9, 20, .18);
+      --shadowHot: 0 18px 45px rgba(255, 47, 179, .25);
+
+      --radius: 20px;
+      --max: 980px;
+    }
+
+    *{ box-sizing: border-box; }
+
+    body{
+      margin:0;
+      color:var(--text);
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      line-height: 1.65;
+      min-height:100vh;
+
+      /* Bratz glam background */
+      background:
+        radial-gradient(900px 450px at 10% 10%, rgba(255,47,179,.55), transparent 60%),
+        radial-gradient(850px 420px at 92% 18%, rgba(124,58,237,.45), transparent 60%),
+        radial-gradient(700px 380px at 40% 92%, rgba(255,121,198,.40), transparent 60%),
+        linear-gradient(135deg, #fff0fb 0%, #ffe0f7 35%, #f5e8ff 100%);
+    }
+
+    /* sparkles */
+    .sparkles{
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: .75;
+      background-image:
+        radial-gradient(2px 2px at 12% 26%, rgba(255,255,255,.9), transparent 60%),
+        radial-gradient(2px 2px at 22% 72%, rgba(255,255,255,.75), transparent 60%),
+        radial-gradient(2px 2px at 78% 24%, rgba(255,255,255,.85), transparent 60%),
+        radial-gradient(2px 2px at 88% 68%, rgba(255,255,255,.7), transparent 60%),
+        radial-gradient(1.5px 1.5px at 52% 12%, rgba(255,255,255,.7), transparent 60%),
+        radial-gradient(1.5px 1.5px at 55% 88%, rgba(255,255,255,.65), transparent 60%);
+      filter: blur(.2px);
+    }
+
+    header{
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(255,255,255,.50);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255, 47, 179, .18);
+    }
+
+    .wrap{
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 14px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap: 10px;
+      text-decoration:none;
+      color: var(--text);
+      font-family: "Playfair Display", serif;
+      font-weight: 700;
+      letter-spacing: .2px;
+      font-size: 22px;
+    }
+
+    .logo{
+      width: 40px;
+      height: 40px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, var(--pink), var(--lilac));
+      box-shadow: var(--shadowHot);
+      display:grid;
+      place-items:center;
+      color:#fff;
+      font-size: 18px;
+      line-height: 1;
+      border: 1px solid rgba(255,255,255,.35);
+    }
+
+    nav{
+      display:flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content:flex-end;
+    }
+
+    .pill{
+      text-decoration:none;
+      color: var(--text);
+      font-weight: 700;
+      font-size: 13px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(22, 9, 20, .10);
+      background: rgba(255,255,255,.65);
+      transition: transform .12s ease, box-shadow .12s ease, border-color .12s ease;
+    }
+    .pill:hover{
+      transform: translateY(-1px);
+      border-color: rgba(255,47,179,.30);
+      box-shadow: 0 12px 25px rgba(22, 9, 20, .12);
+    }
+
+    .pill.primary{
+      border: none;
+      color: #fff;
+      background: linear-gradient(135deg, var(--pink), var(--lilac));
+      box-shadow: 0 14px 28px rgba(255,47,179,.22);
+    }
+
+    main{
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 28px 18px 54px;
+    }
+
+    .hero{
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 16px;
+      align-items: start;
+      padding-top: 10px;
+    }
+
+    h1{
+      font-family: "Playfair Display", serif;
+      font-weight: 700;
+      font-size: clamp(32px, 4vw, 46px);
+      margin: 0 0 10px;
+      letter-spacing: .2px;
+    }
+
+    .subtitle{
       margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      background: #fafafa;
-      color: #222;
-      line-height: 1.6;
+      color: var(--muted);
+      font-size: 15px;
+      max-width: 62ch;
     }
 
-    header {
-      background: #111;
-      padding: 20px;
-      text-align: center;
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      gap: 10px;
+      margin-top: 14px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.70);
+      border: 1px solid rgba(255,47,179,.20);
+      font-size: 13px;
+      color: rgba(22,9,20,.82);
+      width: fit-content;
+      box-shadow: 0 12px 26px rgba(22, 9, 20, .10);
     }
 
-    header a {
-      color: #fff;
-      text-decoration: none;
-      font-size: 28px;
-      font-weight: bold;
+    .dot{
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--pink);
+      box-shadow: 0 0 0 4px rgba(255,47,179,.20);
     }
 
-    main {
-      max-width: 900px;
-      margin: 40px auto;
-      padding: 0 20px;
+    .card{
+      border-radius: var(--radius);
+      background: var(--glass);
+      border: 1px solid var(--stroke);
+      box-shadow: var(--shadow);
+      padding: 18px;
+      backdrop-filter: blur(10px);
     }
 
-    section {
-      margin-bottom: 40px;
-      background: #fff;
-      padding: 25px;
-      border-radius: 12px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    .card h2{
+      font-family: "Playfair Display", serif;
+      margin: 0 0 8px;
+      font-size: 20px;
     }
 
-    h1, h2 {
-      margin-top: 0;
-    }
-
-    ul {
-      padding-left: 20px;
-    }
-
-    .btn {
-      display: inline-block;
-      margin-top: 15px;
-      padding: 12px 20px;
-      background: #111;
-      color: #fff;
-      text-decoration: none;
-      border-radius: 30px;
+    .card p{
+      margin: 0;
+      color: var(--muted);
       font-size: 14px;
     }
 
-    footer {
-      text-align: center;
-      padding: 20px;
+    .btnRow{ display:flex; gap: 10px; flex-wrap: wrap; margin-top: 14px; }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap: 8px;
+      text-decoration:none;
+      font-weight: 800;
+      font-size: 14px;
+      padding: 12px 16px;
+      border-radius: 999px;
+      transition: transform .12s ease, box-shadow .12s ease;
+      border: 1px solid rgba(22,9,20,.12);
+      background: rgba(255,255,255,.78);
+      color: var(--text);
+    }
+    .btn:hover{ transform: translateY(-1px); box-shadow: 0 14px 30px rgba(22, 9, 20, .12); }
+
+    .btn.primary{
+      border: none;
+      background: linear-gradient(135deg, var(--pink), var(--lilac));
+      color: #fff;
+      box-shadow: 0 16px 34px rgba(255,47,179,.24);
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-top: 16px;
+    }
+
+    .mini{
+      border-radius: var(--radius);
+      background: var(--glass);
+      border: 1px solid var(--stroke);
+      box-shadow: 0 12px 28px rgba(22, 9, 20, .12);
+      padding: 18px;
+      backdrop-filter: blur(10px);
+    }
+
+    .mini h3{
+      margin: 0 0 8px;
+      font-family: "Playfair Display", serif;
+      font-size: 18px;
+    }
+    .mini p{ margin: 0; color: var(--muted); font-size: 14px; }
+
+    .sectionTitle{
+      margin: 26px 0 10px;
+      font-family: "Playfair Display", serif;
+      font-size: 22px;
+    }
+
+    ul{
+      margin: 10px 0 0 18px;
+      color: rgba(22,9,20,.82);
+    }
+
+    .email{
+      margin-top: 12px;
+      display:inline-flex;
+      align-items:center;
+      gap: 10px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.72);
+      border: 1px solid rgba(255,47,179,.22);
+      box-shadow: 0 12px 26px rgba(22, 9, 20, .10);
+      font-weight: 700;
       font-size: 13px;
-      color: #666;
-      border-top: 1px solid #ddd;
+      color: rgba(22,9,20,.90);
+    }
+    .email a{ color: rgba(22,9,20,.90); text-decoration: none; }
+    .email a:hover{ text-decoration: underline; }
+
+    footer{
+      text-align:center;
+      padding: 22px 18px;
+      color: rgba(22,9,20,.62);
+      border-top: 1px solid rgba(255,47,179,.18);
+      background: rgba(255,255,255,.48);
+      backdrop-filter: blur(12px);
+    }
+    .small{ font-size: 12px; }
+
+    @media (max-width: 880px){
+      .hero{ grid-template-columns: 1fr; }
+      .grid{ grid-template-columns: 1fr; }
+      .wrap{ flex-direction: column; align-items: flex-start; }
+      nav{ justify-content: flex-start; }
     }
   </style>
 </head>
 
 <body>
+  <div class="sparkles"></div>
 
-  <!-- HEADER -->
   <header>
-    <!-- IMPORTANT : lien vers index.html -->
-    <a href="index.html">GuidanceEva</a>
+    <div class="wrap">
+      <!-- IMPORTANT : lien vers index.html pour éviter le bug -->
+      <a class="brand" href="index.html" aria-label="Retour à l'accueil">
+        <span class="logo">★</span>
+        <span>GuidanceEva</span>
+      </a>
+
+      <nav>
+        <a class="pill" href="tirages.html">Mes tirages</a>
+        <a class="pill" href="contact.html">Contact</a>
+        <a class="pill primary" href="contact.html">Tirage gratuit</a>
+      </nav>
+    </div>
   </header>
 
-  <!-- CONTENU -->
   <main>
+    <section class="hero">
+      <div>
+        <h1>Bienvenue chez GuidanceEva, faites comme chez vous.</h1>
+        <p class="subtitle">
+          Ce site est spécial : grâce à lui, nous pouvons échanger ensemble.
+          Je propose un <strong>premier tirage gratuit</strong> afin de faire plus ample connaissance.
+        </p>
 
-    <section>
-      <h1>Bienvenue chez GuidanceEva, faites comme chez vous.</h1>
-      <p>
-        Ce site est un espace à part, un lieu d’échange, d’écoute et de guidance.
-        Grâce à celui-ci, nous pouvons échanger ensemble dans le respect et la bienveillance.
-      </p>
-      <p>
-        Je propose un <strong>premier tirage gratuit</strong> afin de faire plus ample connaissance
-        et de ressentir si mon énergie vous correspond.
-      </p>
+        <div class="badge">
+          <span class="dot"></span>
+          <span>Girly Bratz energy • guidance douce & honnête</span>
+        </div>
+
+        <div class="btnRow">
+          <a class="btn primary" href="contact.html">Demander mon tirage gratuit</a>
+          <a class="btn" href="tirages.html">Découvrir mes guidances</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Ensemble, on peut travailler sur…</h2>
+        <p>
+          Vos énergies, une guidance personnalisée, les chakras, l’amour, l’amitié, le travail…
+          et tout ce que vous désirez éclairer avec douceur et clarté.
+        </p>
+        <div class="btnRow">
+          <a class="btn" href="contact.html">Me contacter</a>
+          <a class="btn" href="mentions-legales.html">Cadre & éthique</a>
+        </div>
+      </div>
     </section>
 
-    <section>
-      <h2>Sur quoi pouvons-nous travailler ?</h2>
+    <div class="grid">
+      <div class="mini">
+        <h3>Guidance personnalisée</h3>
+        <p>On met des mots sur ce que tu ressens, on clarifie, on apaise, et on avance en conscience.</p>
+      </div>
+      <div class="mini">
+        <h3>Énergies & chakras</h3>
+        <p>Identifier un blocage, rééquilibrer, retrouver ton axe et ta confiance intérieure.</p>
+      </div>
+      <div class="mini">
+        <h3>Tarot & pendule</h3>
+        <p>Tarologie depuis ma tendre enfance + pendule, avec intuition et respect du libre arbitre.</p>
+      </div>
+    </div>
+
+    <h2 class="sectionTitle">Sur quoi pouvons-nous travailler ?</h2>
+    <div class="card">
       <p>
-        Ensemble, nous pouvons travailler sur vos <strong>énergies</strong>,
-        une <strong>guidance personnalisée</strong>, les <strong>chakras</strong>,
-        mais aussi sur des thèmes comme :
+        Nous pouvons avoir des réponses sur des thèmes comme :
       </p>
       <ul>
-        <li>L’amour</li>
-        <li>L’amitié</li>
-        <li>Le travail</li>
-        <li>Les choix de vie</li>
-        <li>Les blocages émotionnels</li>
+        <li>L’amour (relation, intentions, dynamique)</li>
+        <li>L’amitié (liens, jalousie, incompréhensions)</li>
+        <li>Le travail (choix, blocages, opportunités)</li>
+        <li>Les énergies (fatigue, blocage, besoin d’alignement)</li>
+        <li>Les décisions de vie (cap, timing, priorités)</li>
       </ul>
-      <p>
-        La tarologie permet d’éclairer une situation et de mieux comprendre ce que vous traversez,
-        sans jamais imposer une vérité.
-      </p>
-    </section>
+    </div>
 
-    <section>
-      <h2>Qui suis-je ?</h2>
+    <h2 class="sectionTitle">Qui suis-je ?</h2>
+    <div class="card">
       <p>
         Je suis spécialisée dans la <strong>tarologie depuis ma tendre enfance</strong>.
-        J’exerce également avec le <strong>pendule</strong>, en m’appuyant sur mon intuition
-        et mon ressenti.
+        J’exerce aussi le <strong>pendule</strong>, et je m’appuie sur mon intuition et mon ressenti.
       </p>
-      <p>
-        Mon approche est humaine, sincère et respectueuse.
-        Je ne suis pas là pour faire rêver à tout prix,
-        mais pour vous accompagner avec justesse et bienveillance.
-      </p>
-    </section>
 
-    <section>
-      <h2>Premier tirage gratuit</h2>
-      <p>
-        Le premier tirage est offert afin de créer un premier échange.
-        Par la suite, si vous le souhaitez, une guidance plus approfondie pourra être proposée.
-      </p>
-      <a class="btn" href="contact.html">Demander mon tirage gratuit</a>
-    </section>
+      <!-- EMAIL demandé -->
+      <div class="email">
+        📩 <a href="mailto:guidanceevatarologie@gmail.com">guidanceevatarologie@gmail.com</a>
+      </div>
 
+      <p style="margin-top: 12px;">
+        Mon approche est sincère, humaine et respectueuse : je ne suis pas là pour faire rêver à tout prix,
+        mais pour accompagner avec douceur et justesse.
+      </p>
+    </div>
+
+    <h2 class="sectionTitle">Premier tirage gratuit</h2>
+    <div class="card">
+      <p>
+        Premier tirage offert pour faire connaissance et ressentir si mon énergie te correspond.
+        Ensuite, si tu le souhaites, on peut aller plus loin avec une guidance plus approfondie.
+      </p>
+      <div class="btnRow">
+        <a class="btn primary" href="contact.html">Je demande mon tirage gratuit</a>
+        <a class="btn" href="tirages.html">Voir les guidances</a>
+      </div>
+    </div>
   </main>
 
-  <!-- FOOTER -->
   <footer>
-    <p>
-      La tarologie est un outil de guidance et de développement personnel.
+    <div class="small">
+      Disclaimer : la tarologie est une guidance spirituelle et un outil de développement personnel.
       Elle ne remplace pas un avis médical, juridique ou financier.
-    </p>
-    <p>© GuidanceEva</p>
+    </div>
+    <div class="small">© GuidanceEva</div>
   </footer>
-
 </body>
 </html>
+
 
